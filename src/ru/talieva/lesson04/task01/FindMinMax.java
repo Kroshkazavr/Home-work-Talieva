@@ -7,10 +7,8 @@ public class FindMinMax {
     private static int first; /*первое число */
     private static int second; /*второе число */
     private static int getMin (){ /* метод для поиска Минимального числа*/
-        if (first == second) System.out.println("Числа равны");
-        else if (first<second) return first;
+        if (first<second) return first;
         else return second;
-        return 0;/// ????? Почему нуюно добавить return 0? Без него не реботает. ?????
     }
 
     public static void main (String [] args) {
@@ -20,6 +18,9 @@ public class FindMinMax {
         first = in.nextInt(); /*ввод первого числа с клавиатуры */
         System.out.println("Введите второе число.");
         second = in.nextInt(); /*ввод второго числа с клавиатуры */
-        System.out.println("Минимальное число: " + getMin());
+        if (first != second) {
+            System.out.println("Минимальное число: " + getMin() + ".");
+        }
+        else System.out.println("Числа равны.");
     }
 }
