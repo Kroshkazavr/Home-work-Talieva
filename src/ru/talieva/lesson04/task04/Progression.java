@@ -16,13 +16,14 @@ public class Progression {
     }
     public static void main (String [] args) {
         Scanner in = new Scanner (System.in); /*инициализация сканера*/
+        Scanner stc = new Scanner (System.in); /*инициализация сканера*/
         System.out.println("Добро пожаловать! Выведу прогрессию на любой вкус. :)");
         System.out.println("Введите первый член прогрессии.");
         first = in.nextDouble();
         System.out.println("Введите количество членов прогрессии для вывода.");
         N = in.nextInt();
         System.out.println("Геометрическая или арифметическая прогрессия? Введите А или Г.");
-        String type = in.nextLine();  /* для выбора типа прогрессии*/
+        String type = stc.nextLine();  /* для выбора типа прогрессии*/
         type = type.toLowerCase();
         switch (type) { /*ветвление на геометрическую и арифметическую*/
             case "а": {
