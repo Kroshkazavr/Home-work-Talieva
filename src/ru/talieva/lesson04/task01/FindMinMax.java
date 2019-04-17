@@ -6,11 +6,11 @@ import java.util.Scanner;
 public class FindMinMax {
     private static int first; /*первое число */
     private static int second; /*второе число */
+
     private static int getMin (){ /* метод для поиска Минимального числа*/
         if (first<second) return first;
         else return second;
     }
-
     public static void main (String [] args) {
         Scanner in = new Scanner (System.in); /*инициализация сканера*/
         System.out.println("Добро пожаловать в программу по поиску минильного из 2-х натуральных чисел!");
