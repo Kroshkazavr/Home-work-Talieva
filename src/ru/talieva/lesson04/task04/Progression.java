@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Progression {
     private static double first; /*первый член прогрессии */
     private static double diff; /*коэффициент/разность прогрессии*/
-    private static int N; /*количество членов прогрессии для вывода*/
+    private static int N=0; /*количество членов прогрессии для вывода*/
 
     private static void getArithmetic (){ /* метод для вывода арифметической прогрессии по заданным параметрам*/
         for (int i = 0; i<N; i++) System.out.println((first+i*diff)+" ");
@@ -20,8 +20,10 @@ public class Progression {
         System.out.println("Добро пожаловать! Выведу прогрессию на любой вкус. :)");
         System.out.println("Введите первый член прогрессии.");
         first = in.nextDouble();
-        System.out.println("Введите количество членов прогрессии для вывода.");
-        N = in.nextInt();
+        while (N<=0) {
+            System.out.println("Введите количество членов прогрессии для вывода(не менее 1).");
+            N = in.nextInt();
+        }
         System.out.println("Геометрическая или арифметическая прогрессия? Введите А или Г.");
         String type = stc.nextLine();  /* для выбора типа прогрессии*/
         type = type.toLowerCase();

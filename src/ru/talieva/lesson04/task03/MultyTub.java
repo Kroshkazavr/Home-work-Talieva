@@ -4,7 +4,7 @@ package ru.talieva.lesson04.task03;
 public class MultyTub {
 
     public static void main (String [] args) {
-        System.out.println("********* Таблицв умножения *********");
+        System.out.println("********* Таблица умножения *********");
         System.out.print("    "); /* вывод пустоты в начале шапки таблицы */
         for (int i=1; i<10; i++) { /* вывод шапки таблицы */
             System.out.print((i) + "   ");
