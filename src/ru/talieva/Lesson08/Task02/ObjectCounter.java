@@ -7,12 +7,15 @@ public class ObjectCounter {
     private static int numberOfObject = 0; //статический счетчик объектов
 
     private static int getNumberOfObject() { //метод, возвращаюший кол-во созданных объектов
+
         return numberOfObject;
     }
     private static void createNewObject() { //метод увеличивает счетчик +1
+
         numberOfObject++;
     }
-    public ObjectCounter() { //конструктор, который вызывает метод увеличения счетчика при создании нового объекта
+    private ObjectCounter() { //конструктор, который вызывает метод увеличения счетчика при создании нового объекта
+
         ObjectCounter.createNewObject();
     }
     public static void main( String [] args) {
