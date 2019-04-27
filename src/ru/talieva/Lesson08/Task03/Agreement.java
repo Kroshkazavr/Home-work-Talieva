@@ -1,68 +1,53 @@
 package ru.talieva.Lesson08.Task03;
 
-/** Реализовать два класса: договор и акт. В каждом сделать поля: номер, дата, список товаров (массив строк).
- * Написать класс со статическим методом конвертации договора в акт (на вход передавать договор, на выходе получаем акт).**/
-//todo поправь док
-public class Agreement {
+/** Класс договор**/
+class Agreement {
     private int number; // номер договора
     private String startDate; // дата начала договора
     private String endDate; // дата окончания договора
-    private String[] list; // список услуг
+    String[] list; // список услуг
 
-    Agreement (int number, String startDate, String endDate){
+    Agreement(int number, String startDate, String endDate) { //Конструктор договора
         this.number = number;
         this.startDate = startDate;
         this.endDate = endDate;
     }
 
-    public String getList(String[] list, int i) {
-        if (i < list.length){
-            String str = list[i];
-            return str;
-        }
-        else return "Ошибка индексов";
+    String[] getList() {
+        return list;
     }
 
-    public void setList(String[] list) {
+    void getListPrint(String[] list) { //Метод печати массива услуг
+        for (int i = 0; i < list.length; i++) {
+            System.out.println(list[i]);
+        }
+    }
+
+    void setList(String[] list) {
         this.list = list;
     }
 
-    public String getEndDate() {
+    String getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(String endDate) {
+    void setEndDate(String endDate) {
         this.endDate = endDate;
     }
 
-    public String getStartDate() {
+    String getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(String startDate) {
+    void setStartDate(String startDate) {
         this.startDate = startDate;
     }
 
-    public int getNumber() {
+    int getNumber() {
         return number;
     }
 
-    public void setNumber(int number) {
+    void setNumber(int number) {
         this.number = number;
     }
-//    public class Lesson8 {
-//        private String title;
-//
-//        public Lesson8(String title) {
-//            this.title = title;
-//        }
-//
-//        public String getTitle() {
-//            return title;
-//        }
-//
-//        public void setTitle(String title) {
-//            this.title = title;
-//        }
-//    }
 }
