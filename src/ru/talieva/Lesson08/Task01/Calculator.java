@@ -6,49 +6,37 @@ import java.util.Scanner;
  * сложения, умножения, деления и взятия процента от числа.
  * Класс работает как с целыми числами, так и с дробями**/
 public class Calculator {
-    private static int intResult; // результат на int
-    private static double doubleResult; // результат на double
-// Блок для int
+    // Блок для int
     private static int getSum (int leftOperand, int rightOperand) {
-        intResult = leftOperand + rightOperand;
-        return intResult;
+        return leftOperand + rightOperand;
     }
     private static int getDiff (int leftOperand, int rightOperand) {
-        intResult = leftOperand - rightOperand;
-        return intResult;
+        return leftOperand - rightOperand;
     }
     private static int getIncrease (int leftOperand, int rightOperand) {
-        intResult = leftOperand * rightOperand;
-        return intResult;
+        return leftOperand * rightOperand;
     }
     private static double getDivision (int leftOperand, int rightOperand) {
-        doubleResult = Double.valueOf(leftOperand) / Double.valueOf(rightOperand);
-        return doubleResult;
+        return Double.valueOf(leftOperand) / Double.valueOf(rightOperand);
     }
     private static double getDivision (double leftOperand, double rightOperand) {
-        doubleResult = leftOperand / rightOperand;
-        return doubleResult;
+        return leftOperand / rightOperand;
     }
     private static double getResult (int leftOperand, int rightOperand) {
-        doubleResult = (Double.valueOf(leftOperand) * Double.valueOf(rightOperand)) / 100;
-        return doubleResult;
+        return (Double.valueOf(leftOperand) * Double.valueOf(rightOperand)) / 100;
     }
     private static double getResult (double leftOperand, double rightOperand) {
-        doubleResult = (leftOperand * rightOperand) / 100;
-        return doubleResult;
+        return (leftOperand * rightOperand) / 100;
     }
 
     private static double getSum (double leftOperand, double rightOperand) {
-        doubleResult = leftOperand - rightOperand;
-        return doubleResult;
+        return leftOperand - rightOperand;
     }
     private static double getDiff (double leftOperand, double rightOperand) {
-        doubleResult = leftOperand + rightOperand;
-        return doubleResult;
+        return leftOperand + rightOperand;
     }
     private static double getIncrease (double leftOperand, double rightOperand) {
-        doubleResult = leftOperand * rightOperand;
-        return doubleResult;
+        return leftOperand * rightOperand;
     }
 
     public static void main(String[] args) {
