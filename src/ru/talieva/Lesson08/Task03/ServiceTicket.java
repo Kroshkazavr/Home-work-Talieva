@@ -1,11 +1,13 @@
 package ru.talieva.Lesson08.Task03;
 
-/** Класс акт**/
+/**
+ * Класс акт
+ **/
 class ServiceTicket {
+    String[] list; // список услуг
     private int number; // номер договора
     private String startDate; // дата начала договора
     private String endDate; // дата окончания договора
-    String[] list; // список услуг
 
     ServiceTicket(int number, String startDate, String endDate, String[] list) { // Конструктор акта
         this.number = number;
@@ -13,23 +15,28 @@ class ServiceTicket {
         this.endDate = endDate;
         this.list = list;
     }
+
     void getListPrint(String[] list) { //Метод печати массива услуг
-        for (int i = 0; i < list.length; i++){
+        for (int i = 0; i < list.length; i++) {
             System.out.println(list[i]);
         }
     }
+
     String getEndDate() {
 
         return endDate;
     }
+
     String getStartDate() {
 
         return startDate;
     }
+
     int getNumber() {
 
         return number;
     }
+
     String[] getList() {
         return list;
     }

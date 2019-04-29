@@ -2,7 +2,9 @@ package ru.talieva.Lesson08.Task03;
 
 import java.util.Scanner;
 
-/** Написать класс со статическим методом конвертации договора в акт (на вход передавать договор, на выходе получаем акт).**/
+/**
+ * Написать класс со статическим методом конвертации договора в акт (на вход передавать договор, на выходе получаем акт).
+ **/
 public class Converter {
 
     private static ServiceTicket convert(Agreement firstAgr) {
@@ -23,18 +25,17 @@ public class Converter {
         firstAgreement.getListPrint(firstAgreement.list);
         System.out.println("*********************************************************");
         System.out.println("Выпустить акт к договору? (Нажмите: 1-Да, 2-Нет)");
-        Scanner in = new Scanner (System.in);
+        Scanner in = new Scanner(System.in);
         int flag = in.nextInt();
         if (flag == 1) {
             System.out.println("*********************************************************");
             ServiceTicket firstServiceTicket = Converter.convert(firstAgreement);
             System.out.println("К договору №" + firstServiceTicket.getNumber() + " от " + firstServiceTicket.getStartDate()
-                + " создан закрываюший акт.");
+                    + " создан закрываюший акт.");
             System.out.println("Дата подписания акта: " + firstServiceTicket.getEndDate());
             System.out.println("Список оказанных по договру услуг: ");
             firstServiceTicket.getListPrint(firstServiceTicket.list);
-            }
-        else {
+        } else {
             System.out.println("Спасибо за внимание. Конец.");
         }
     }

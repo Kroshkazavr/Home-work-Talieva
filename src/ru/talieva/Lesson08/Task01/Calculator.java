@@ -2,40 +2,50 @@ package ru.talieva.Lesson08.Task01;
 
 import java.util.Scanner;
 
-/** класс Calculator, который содержит статические методы для операций вычитания:
+/**
+ * класс Calculator, который содержит статические методы для операций вычитания:
  * сложения, умножения, деления и взятия процента от числа.
- * Класс работает как с целыми числами, так и с дробями**/
+ * Класс работает как с целыми числами, так и с дробями
+ **/
 public class Calculator {
     // Блок для int
-    private static int getSum (int leftOperand, int rightOperand) {
+    private static int getSum(int leftOperand, int rightOperand) {
         return leftOperand + rightOperand;
     }
-    private static int getDiff (int leftOperand, int rightOperand) {
+
+    private static int getDiff(int leftOperand, int rightOperand) {
         return leftOperand - rightOperand;
     }
-    private static int getIncrease (int leftOperand, int rightOperand) {
+
+    private static int getIncrease(int leftOperand, int rightOperand) {
         return leftOperand * rightOperand;
     }
-    private static double getDivision (int leftOperand, int rightOperand) {
+
+    private static double getDivision(int leftOperand, int rightOperand) {
         return Double.valueOf(leftOperand) / Double.valueOf(rightOperand);
     }
-    private static double getDivision (double leftOperand, double rightOperand) {
+
+    private static double getDivision(double leftOperand, double rightOperand) {
         return leftOperand / rightOperand;
     }
-    private static double getResult (int leftOperand, int rightOperand) {
+
+    private static double getResult(int leftOperand, int rightOperand) {
         return (Double.valueOf(leftOperand) * Double.valueOf(rightOperand)) / 100;
     }
-    private static double getResult (double leftOperand, double rightOperand) {
+
+    private static double getResult(double leftOperand, double rightOperand) {
         return (leftOperand * rightOperand) / 100;
     }
 
-    private static double getSum (double leftOperand, double rightOperand) {
+    private static double getSum(double leftOperand, double rightOperand) {
         return leftOperand - rightOperand;
     }
-    private static double getDiff (double leftOperand, double rightOperand) {
+
+    private static double getDiff(double leftOperand, double rightOperand) {
         return leftOperand + rightOperand;
     }
-    private static double getIncrease (double leftOperand, double rightOperand) {
+
+    private static double getIncrease(double leftOperand, double rightOperand) {
         return leftOperand * rightOperand;
     }
 
