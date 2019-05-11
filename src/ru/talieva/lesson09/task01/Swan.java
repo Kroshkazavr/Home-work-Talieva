@@ -2,11 +2,12 @@ package ru.talieva.lesson09.task01;
 
 import ru.talieva.lesson09.task02.Flyable;
 import ru.talieva.lesson09.task02.Swimmable;
+import ru.talieva.lesson09.task02.Runnable;
 
 /**
  * Наследник класса Животное с реализованным методом getName
  **/
-public class Swan extends Animal implements ru.talieva.lesson09.task02.Runnable, Flyable, Swimmable {
+public class Swan extends Animal implements Runnable, Flyable, Swimmable {
 
     private Swan(String title) { // Конструктор
         super(title);
@@ -17,6 +18,8 @@ public class Swan extends Animal implements ru.talieva.lesson09.task02.Runnable,
         swan.getName();
         swan.run();
         swan.fly();
+        swan.swim();
+        swan.dive();
         swan.getSleep();
     }
 
@@ -39,5 +42,10 @@ public class Swan extends Animal implements ru.talieva.lesson09.task02.Runnable,
     @Override
     public void swim() { // Реализация интерфейса плавание
         System.out.println("Я отлично плаваю.");
+    }
+
+    @Override
+    public void dive() {
+        System.out.println("Бульк."); // Реализация интерфейса ныряние
     }
 }

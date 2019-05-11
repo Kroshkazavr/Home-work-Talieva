@@ -1,11 +1,12 @@
 package ru.talieva.lesson09.task01;
 
+import ru.talieva.lesson09.task02.Runnable;
 import ru.talieva.lesson09.task02.Swimmable;
 
 /**
  * Наследник класса Животное с реализованным методом getName
  **/
-public class Lion extends Animal implements ru.talieva.lesson09.task02.Runnable, Swimmable {
+public class Lion extends Animal implements Runnable, Swimmable {
 
     private Lion(String title) { // Конструктор
         super(title);
@@ -32,5 +33,10 @@ public class Lion extends Animal implements ru.talieva.lesson09.task02.Runnable,
     @Override
     public void swim() { // Реализация интерфейса плавание
         System.out.println("Я умею плавать.");
+    }
+
+    @Override
+    public void dive() {
+
     }
 }

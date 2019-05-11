@@ -27,4 +27,10 @@ public class Fish extends Animal implements Swimmable {
     public void swim() {
         System.out.println("Я плаваю лучше всех и живу в воде."); // Реализация интерфейса плавание
     }
+
+    @Override
+    public void dive() {
+        System.out.println("Бульк."); // Реализация интерфейса ныряние
+    }
+
 }
