@@ -12,7 +12,7 @@ import java.io.IOException;
 public class Recursion {
     private static int count = 0;
 
-    public static void main(String[] args) throws IOException {
+    static void main(String[] args) throws IOException {
         new File("dir/a/b").mkdirs();
         new File("dir/d.txt").createNewFile();
         new File("dir/e.txt").createNewFile();
@@ -28,7 +28,7 @@ public class Recursion {
         System.out.println("*********************************");
     }
 
-    private static void recursivePrint(File dir) {
+    public static void recursivePrint(File dir) {
         File[] files = dir.listFiles();
         System.out.println(dir.getName());
         if (files != null) {
