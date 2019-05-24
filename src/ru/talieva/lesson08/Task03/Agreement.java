@@ -1,18 +1,25 @@
-package ru.talieva.Lesson08.Task03;
+package ru.talieva.lesson08.Task03;
 
 /**
- * Класс акт
+ * Класс договор
  **/
-class ServiceTicket {
+class Agreement {
     String[] list; // список услуг
     private int number; // номер договора
     private String startDate; // дата начала договора
     private String endDate; // дата окончания договора
 
-    ServiceTicket(int number, String startDate, String endDate, String[] list) { // Конструктор акта
+    Agreement(int number, String startDate, String endDate) { //Конструктор договора
         this.number = number;
         this.startDate = startDate;
         this.endDate = endDate;
+    }
+
+    String[] getList() {
+        return list;
+    }
+
+    void setList(String[] list) {
         this.list = list;
     }
 
@@ -23,22 +30,26 @@ class ServiceTicket {
     }
 
     String getEndDate() {
-
         return endDate;
     }
 
-    String getStartDate() {
+    void setEndDate(String endDate) {
+        this.endDate = endDate;
+    }
 
+    String getStartDate() {
         return startDate;
     }
 
-    int getNumber() {
+    void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
 
+    int getNumber() {
         return number;
     }
 
-    String[] getList() {
-        return list;
+    void setNumber(int number) {
+        this.number = number;
     }
 }
-

@@ -1,4 +1,4 @@
-package ru.talieva.Lesson08.Task02;
+package ru.talieva.lesson08.Task02;
 
 import java.util.Scanner;
 
