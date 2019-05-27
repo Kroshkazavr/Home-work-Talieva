@@ -11,7 +11,7 @@ public enum Drink {
     PEPSI("Пепси", 120),
     MIRINDA("Миринда", 120),
     SEVEN_UP("7UP", 120),
-    RED_BULL("RED_BULL", 150);
+    RED_BULL("RED BULL", 150);
 
     private String title; // Название напитка на русском
     private int price; // Цена напитка
@@ -32,9 +32,9 @@ public enum Drink {
 
     public String getTitle() { // Возвращает название напитка на русском
         return title;
-    }
+    } // Возвращает название напитка на русском
 
     public int getPrice() { // Возвращает цену напитка
         return price;
-    }
+    } // Возвращает цену напитка
 }

@@ -1,87 +1,81 @@
 package ru.talieva.lesson07;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
  * Эмулятор вендинга
  **/
 public class Vending {
-    static final int NUMBER_OF_ITEMS = 5; //количество ячеек в вендинге
-    ///положить деньги на внутренний счет
-    ///выдать напиток по запросу после проверки баланса
+
     private Drink[] drinks; // Массив напитков
+    private int cellsCount; // Количество ячеек в вендинге
 
-//    Vending() //конструктор, который создает массив напитков для вендинга в момент создания объекта вендинг
-//    {
-//        Drink[] drinks = new Drink[NUMBER_OF_ITEMS];
-//    }
+    Vending(int cellsCount)  //конструктор, который создает массив напитков для вендинга в момент создани
+    // объекта вендинг
+    {
+        this.drinks = new Drink[cellsCount];
+        this.cellsCount = cellsCount;
+    }
 
-    public Drink[] getDrinks() {
+    Drink[] getDrinks() {
         return drinks;
     }
 
-    static void printDrinks(Drink[] drinks) {
+    int getCellsCount() {
+        return cellsCount;
+    }
+
+    public void setCellsCount(int cellsCount) {
+        this.cellsCount = cellsCount;
+    }
+
+    void run() {
+
+        System.out.println("Витрина вендинга:");
+        printDrinks();
+        System.out.println("*********************************************");
+        int money = inputCash(); // Внесенные деньги
+        int item = selectDrink(); // Выбранный напиток
+        Scanner in = new Scanner(System.in);
+        while (money < drinks[item - 1].getPrice()) { // цикл на проверку достаточности средств и довнесения
+            System.out.println("Недостаточно средств. Внесите дополнительные деньги:");
+            money = money + in.nextInt();
+            System.out.println(">>>Вы внесли на счет: " + money);
+        }
+        System.out.println("Получите Ваш напиток: " + drinks[item - 1].getTitle());
+        if (money > drinks[item - 1].getPrice()) // подсчет сдачи
+            System.out.println("Ваша сдача " + (money - drinks[item - 1].getPrice()) + "руб.");
+    }
+
+    private int selectDrink() { // метод для выбора напитка с проверками
+        System.out.println("Введите номер ячейки с напитком:");
+        Scanner in = new Scanner(System.in);
+        int item = in.nextInt(); // номер ячейки с напитком
+        while ((item < 1) || (item > drinks.length)) {
+            System.out.println("Неверный номер напитка. Введите номер ячейки с напитком:");
+            item = in.nextInt();
+        }
+        System.out.println(">>>Вы выбрали: " + drinks[item - 1].getTitle());
+        return item;
+    }
+
+    private int inputCash() { // метод для внесения денег
+        System.out.println("Внесите деньги:");
+        Scanner in = new Scanner(System.in);
+        return in.nextInt(); // внесённые средства
+    }
+
+    void printDrinks() { // метод вывода витрины загруженного вендинга
         for (int i = 0; i < drinks.length; i++) {
-            System.out.println((i+1) + ". " + drinks[i]);
-            return;
+            System.out.println((i + 1) + ". " + drinks[i].getTitle() + ". Цена: " + drinks[i].getPrice());
         }
     }
 
-    public void setDrinks(Drink[] drinks) {
-        this.drinks = drinks;
+    void makeDrinks(int item, int i) {  //Заполняем вендинг напитками
+        Drink drink = Drink.values()[item - 1];
+        drinks[i] = drink;
+        System.out.println("Для ячейки №" + (i + 1) + " выбран напиток " + drink.getTitle());
     }
-
-    static void makeDrinks (Drink[] drinks, int item, int i) {  //Заполняем вендинг напитками
-
-
-    }
-
-    private Drink chooseCase (Drink[] drinks, int item, int i) {
-        switch (item) {
-            case 1: {
-                System.out.println("Для ячейки №" + i + " выбран напиток '" + Drink.COLD_TEA.getTitle() + "'");
-                return Drink.COLD_TEA;
-                break;
-//            }
-//            case 2: {
-//                drinks[i - 1] = Drink.STILL_WATER;
-//                System.out.println("Для ячейки №" + i + " выбран напиток '" + Drink.STILL_WATER.getTitle() + "'");
-//                break;
-//            }
-//            case 3: {
-//                drinks[i - 1] = Drink.SPARKLING_WATER;
-//                System.out.println("Для ячейки №" + i + " выбран напиток '" + Drink.SPARKLING_WATER.getTitle() + "'");
-//                break;
-//            }
-//            case 4: {
-//                drinks[i - 1] = Drink.JUICE;
-//                System.out.println("Для ячейки №" + i + " выбран напиток '" + Drink.JUICE.getTitle() + "'");
-//                break;
-//            }
-//            case 5: {
-//                drinks[i - 1] = Drink.PEPSI;
-//                System.out.println("Для ячейки №" + i + " выбран напиток '" + Drink.PEPSI.getTitle() + "'");
-//                break;
-//            }
-//            case 6: {
-//                drinks[i - 1] = Drink.MIRINDA;
-//                System.out.println("Для ячейки №" + i + " выбран напиток '" + Drink.MIRINDA.getTitle() + "'");
-//                break;
-//            }
-//            case 7: {
-//                drinks[i - 1] = Drink.SEVEN_UP;
-//                System.out.println("Для ячейки №" + i + " выбран напиток '" + Drink.SEVEN_UP.getTitle() + "'");
-//                break;
-//            }
-//            case 8: {
-//                drinks[i - 1] = Drink.RED_BULL;
-//                System.out.println("Для ячейки №" + i + " выбран напиток '" + Drink.RED_BULL.getTitle() + "'");
-//                break;
-//            }
-//            default:
-//                System.out.println("ОЙ!");
-//        }
-//    }
-//}
-
+}
 
