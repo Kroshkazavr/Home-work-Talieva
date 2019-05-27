@@ -1,6 +1,5 @@
 package ru.talieva.lesson07;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -11,9 +10,12 @@ public class Vending {
     private Drink[] drinks; // Массив напитков
     private int cellsCount; // Количество ячеек в вендинге
 
-    Vending(int cellsCount)  //конструктор, который создает массив напитков для вендинга в момент создани
-    // объекта вендинг
-    {
+    /**
+     * Конструктор, который создает массив напитков для вендинга в момент создания объекта вендинг
+     *
+     * @param cellsCount - количество ячеек для загрузки напитков в вендинг
+     */
+    Vending(int cellsCount) {
         this.drinks = new Drink[cellsCount];
         this.cellsCount = cellsCount;
     }
@@ -30,6 +32,15 @@ public class Vending {
         this.cellsCount = cellsCount;
     }
 
+    /**
+     * Метод имитирующий работу вендинга:
+     * 1. показать витрину,
+     * 2. принять деньги,
+     * 3. запросить желаемый напиток
+     * 4. проверить, хватает ли денег на покупку, если нет, то просить дополнительные до необходимой суммы
+     * 5. выдать напиток
+     * 6. выдать сдачу, если денег дали больше, чем нужно.
+     */
     void run() {
 
         System.out.println("Витрина вендинга:");
@@ -48,7 +59,12 @@ public class Vending {
             System.out.println("Ваша сдача " + (money - drinks[item - 1].getPrice()) + "руб.");
     }
 
-    private int selectDrink() { // метод для выбора напитка с проверками
+    /**
+     * метод для выбора пользователем напитка (с проверкой на корректность запроса)
+     *
+     * @return номер напитка на ветрине
+     */
+    private int selectDrink() {
         System.out.println("Введите номер ячейки с напитком:");
         Scanner in = new Scanner(System.in);
         int item = in.nextInt(); // номер ячейки с напитком
@@ -60,19 +76,38 @@ public class Vending {
         return item;
     }
 
-    private int inputCash() { // метод для внесения денег
+    /**
+     * метод для внесения пользователем денег (с проверкой на положительность)
+     *
+     * @return внесённые средства
+     */
+    private int inputCash() {
         System.out.println("Внесите деньги:");
         Scanner in = new Scanner(System.in);
-        return in.nextInt(); // внесённые средства
+        int money = in.nextInt(); // внесенные средства
+        while (money < 0) {
+            System.out.println("Нельзя внести отрицательную сумму:");
+            money = in.nextInt();
+        }
+        return money;
     }
 
-    void printDrinks() { // метод вывода витрины загруженного вендинга
+    /**
+     * метод для выврда витрины загруженного вендинга
+     */
+    private void printDrinks() {
         for (int i = 0; i < drinks.length; i++) {
             System.out.println((i + 1) + ". " + drinks[i].getTitle() + ". Цена: " + drinks[i].getPrice());
         }
     }
 
-    void makeDrinks(int item, int i) {  //Заполняем вендинг напитками
+    /**
+     * метод для заполнения витрины вендинга напитками
+     *
+     * @param item номер существующего напитка
+     * @param i    индекс в массиве напитков вендинга
+     */
+    void makeDrinks(int item, int i) {
         Drink drink = Drink.values()[item - 1];
         drinks[i] = drink;
         System.out.println("Для ячейки №" + (i + 1) + " выбран напиток " + drink.getTitle());

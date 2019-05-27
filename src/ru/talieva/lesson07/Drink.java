@@ -13,15 +13,24 @@ public enum Drink {
     SEVEN_UP("7UP", 120),
     RED_BULL("RED BULL", 150);
 
-    private String title; // Название напитка на русском
-    private int price; // Цена напитка
+    private String title;
+    private int price;
 
-    Drink(String title, int price) { // Конструктор для Drink
+    /**
+     * Конструктор для Drink
+     *
+     * @param title - название напитка на русском
+     * @param price - цена напитка
+     */
+    Drink(String title, int price) {
         this.title = title;
         this.price = price;
     }
 
-    public static void getAssortment() { //Вывод на экран списка возможных напитков
+    /**
+     * Метод для вывода на экран списка существующих напитков
+     */
+    public static void getAssortment() {
         int count = 1;
         for (Drink i : Drink.values()) {
             System.out.println(count + ". " + i);
@@ -30,11 +39,11 @@ public enum Drink {
         System.out.println("*********************************************");
     }
 
-    public String getTitle() { // Возвращает название напитка на русском
+    public String getTitle() {
         return title;
-    } // Возвращает название напитка на русском
+    }
 
-    public int getPrice() { // Возвращает цену напитка
+    public int getPrice() {
         return price;
-    } // Возвращает цену напитка
+    }
 }

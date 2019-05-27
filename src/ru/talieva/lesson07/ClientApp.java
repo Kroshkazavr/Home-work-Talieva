@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 /**
  * Эмулятор взаимодействия с вендингом
+ * 1. процедура заполнения вендинга пользователем (с проверкой корректности номера напитка)
+ * 2. запуск вендинга в бесконечном цикле с возможностью выйти по жеданию пользователя после выдачи напитка
  **/
 public class ClientApp {
 
@@ -28,7 +30,15 @@ public class ClientApp {
             }
         }
         System.out.println("*********************************************");
-        vendMachine.run(); // запуск вендинга
+        boolean proceed = true;
+        while (proceed) {
+            Scanner in = new Scanner(System.in);
+            vendMachine.run(); // запуск вендинга
+            System.out.println("Желаете купить еще один напиток? (да/нет или yes/no)");
+            String answer = in.nextLine().toLowerCase();
+            if (answer.equals("нет") || answer.equals("no"))
+                proceed = false;
+        }
         System.out.println("Пока!");
     }
 }
