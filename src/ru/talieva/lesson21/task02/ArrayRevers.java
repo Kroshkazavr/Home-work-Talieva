@@ -12,20 +12,21 @@ import java.util.Scanner;
 public class ArrayRevers {
 
     public static void main(String[] args) {
-        System.out.println("Добро пожаловать в ArrayRevers. Введите количество элементов в массиве.");
+        System.out.println("Добро пожаловать в ArrayRevers. ");
+        System.out.println("Ваш массив будет заполнен с помощью рандома, а затем развернут в обратном порядке.");
+        System.out.println("Введите количество элементов в массиве.");
         Scanner in = new Scanner(System.in);
         try {
             int number = in.nextInt(); // Количество элементов в массиве
             int[] arrRandom = new int[number];
-            System.out.println("Массив будет заполнен с помощью рандома, а затем развернут в обратном порядке.");
             System.out.println("Заполняем массив.");
             System.out.println("..............................................................................");
             makeRandomArray(arrRandom);
-            System.out.print("Исходный массив: ");
-            printArray(arrRandom);
+            System.out.println("Исходный массив: ");
+            printMyArray(arrRandom);
             makeRevers(arrRandom);
-            System.out.print("Перевернутый массив: ");
-            printArray(arrRandom);
+            System.out.println("Перевернутый массив: ");
+            printMyArray(arrRandom);
         } catch (NegativeArraySizeException e) {
             System.out.println("Ошибка: Введено отрицательное количество элементов.");
         } catch (InputMismatchException e) {
@@ -38,7 +39,7 @@ public class ArrayRevers {
      *
      * @param arr массив для вывода в консоль
      */
-    private static void printArray(int[] arr) {
+    public static void printMyArray(int[] arr) {
         for (int i : arr) {
             System.out.print(i + " ");
         }
@@ -59,14 +60,15 @@ public class ArrayRevers {
     }
 
     /**
-     * метод заполнения массива рандомнвми элементами (0-100)
+     * метод заполнения массива рандомными элементами (0-100)
      *
      * @param arr массив для рандомного заполнения
      */
-    private static void makeRandomArray(int[] arr) {
+    public static int[] makeRandomArray(int[] arr) {
         Random rand = new Random();
         for (int i = 0; i < arr.length; i++) {
             arr[i] = rand.nextInt(100);
         }
+        return arr;
     }
 }
