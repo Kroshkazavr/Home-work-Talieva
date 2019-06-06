@@ -43,18 +43,18 @@ public class EnCoder {
                 //Записываем в новый файл с другой кодировкой
                 String s;
                 OutputStream os = new FileOutputStream(test02);
-                for (int i = 0; i <= countFileLines(test01) + 1; ) {
+                //for (int i = 0; i <= countFileLines(test01); ) {
                     while ((s = br.readLine()) != null) {
-                        if (i > 1 || i < countFileLines(test01)) {
-                            String s1 = " \n" + s;
+                        //if (i > 1 || i < countFileLines(test01)) {
+                        String s1 = s + " \n";
                             os.write(s1.getBytes(charset2));
-                            i++;
-                        } else {
-                            os.write(s.getBytes(charset2));
-                            i++;
-                        }
+                        //i++;
+                        // } else {
+                        // os.write(s.getBytes(charset2));
+                        //i++;
+                        //}
                     }
-                }
+                //}
             }
         } catch (IOException e) {
             System.out.println("Файл для чтения не найден или не прочитан. Или во время записи что-то пощло не так.");
@@ -112,7 +112,6 @@ public class EnCoder {
                 readChars = is.read(c);
             }
             while (readChars != -1) {
-                //System.out.println(readChars);
                 for (int i = 0; i < readChars; ++i) {
                     if (c[i] == '\n') {
                         counterN++;
