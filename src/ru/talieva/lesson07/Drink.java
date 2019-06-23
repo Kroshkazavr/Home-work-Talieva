@@ -1,5 +1,7 @@
 package ru.talieva.lesson07;
 
+import org.apache.log4j.Logger;
+
 /**
  * Класс с вариантами напитков для вендинга
  **/
@@ -15,6 +17,7 @@ public enum Drink {
 
     private String title;
     private int price;
+    private static final Logger logger = Logger.getLogger(ClientApp.class);
 
     /**
      * Конструктор для Drink
@@ -31,6 +34,7 @@ public enum Drink {
      * Метод для вывода на экран списка существующих напитков
      */
     public static void getAssortment() {
+        logger.info("Запущен метод getAssortment.");
         int count = 1;
         for (Drink i : Drink.values()) {
             System.out.println(count + ". " + i);
