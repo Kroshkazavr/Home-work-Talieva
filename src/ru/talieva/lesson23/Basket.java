@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Задание#23: Реализовать класс корзины интернет магазина по следующему интерфейсу:
  */
-interface Basket {
+public interface Basket {
 
     List<String> getProducts();
 
