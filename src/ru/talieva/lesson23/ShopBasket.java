@@ -7,7 +7,7 @@ import java.util.*;
  */
 public class ShopBasket implements Basket {
 
-    private ArrayList<BasketCell> basket; // корзина - массив ячеек
+    private ArrayList<Product> basket; // корзина - массив ячеек
 
     ShopBasket() { // конструктор с одновременным созданием массива ячеек
         this.basket = new ArrayList<>();
@@ -24,12 +24,12 @@ public class ShopBasket implements Basket {
      */
     @Override
     public void addProduct(String product, int quantity) {
-        BasketCell fbc = findSameProduct(product); // ищем повторение
+        Product fbc = findSameProduct(product); // ищем повторение
         if (fbc != null) { // если такой товар уже есть,
             fbc.setQuantity((fbc.getQuantity() + quantity)); // то увеличиваем количество
             System.out.println(">>>Товар <" + product + "> уже есть в Вашей корзине, количество увеличено.");
         } else { // иначе
-            BasketCell bc = new BasketCell(product, quantity); // создаем новую карточку
+            Product bc = new Product(product, quantity); // создаем новую карточку
             basket.add(bc); // добавляем в корзину
             System.out.println(">>>Добавлено: " + product + " - " + quantity + "шт.");
         }
@@ -44,7 +44,7 @@ public class ShopBasket implements Basket {
      */
     @Override
     public void removeProduct(String product) {
-        BasketCell fbc = findSameProduct(product); // ищем повторение
+        Product fbc = findSameProduct(product); // ищем повторение
         if (fbc != null) { // если такой товар есть,
             basket.remove(fbc); // удаляем
             System.out.println(">>>Товар <" + product + "> из корзины удален.");
@@ -63,7 +63,7 @@ public class ShopBasket implements Basket {
      */
     @Override
     public void updateProductQuantity(String product, int quantity) {
-        BasketCell fbc = findSameProduct(product); // ищем повторение
+        Product fbc = findSameProduct(product); // ищем повторение
         if (fbc != null) { // если такой товар есть,
             fbc.setQuantity(quantity); // обновляем количество (устанавливаем новое)
             System.out.println(">>>Количество товара <" + product + "> в корзине обновлено.");
@@ -98,7 +98,7 @@ public class ShopBasket implements Basket {
     @Override
     public List<String> getProducts() {
         List<String> ls = new LinkedList<>(); //создаем список
-        for (BasketCell bc : basket) { //перебераем все элементы
+        for (Product bc : basket) { //перебераем все элементы
             ls.add(bc.toString()); // добавляем в список с обработкой в String
         }
         return ls;
@@ -112,7 +112,7 @@ public class ShopBasket implements Basket {
      */
     @Override
     public int getProductQuantity(String product) {
-        BasketCell fbc = findSameProduct(product); //ищем товар
+        Product fbc = findSameProduct(product); //ищем товар
         if (fbc != null) { //если нашли, то
             return fbc.getQuantity(); //возвращаем количество
         } else { //иначе возвращаем отрицательное кол-во, чтобы было понятно, что товара в корзине нет
@@ -126,11 +126,11 @@ public class ShopBasket implements Basket {
      * @param product наименование товара
      * @return возвращает ячейку/карточку товара
      */
-    private BasketCell findSameProduct(String product) {
+    private Product findSameProduct(String product) {
         if (!basket.isEmpty()) { // если корзина не пуста
             for (int i = 0; i < basket.size(); i++) { //перебираем все элементы
-                BasketCell basketCell = basket.get(i); // достаем их
-                if (basketCell.getProduct().equalsIgnoreCase(product)) { // сравниваем их наименование с искомым
+                Product basketCell = basket.get(i); // достаем их
+                if (basketCell.getName().equalsIgnoreCase(product)) { // сравниваем их наименование с искомым
                     return basketCell; // возвращаем карточку, если нашли нужно наименование
                 }
             }

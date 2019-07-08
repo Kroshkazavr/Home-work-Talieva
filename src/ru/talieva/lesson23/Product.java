@@ -3,13 +3,13 @@ package ru.talieva.lesson23;
 /**
  * Класс ячейки (карточки товара) корзины интернет магазина.
  */
-public class BasketCell {
+public class Product {
     private int quantity; // количество товара
-    private String product; // наименование товара
+    private String name; // наименование товара
 
-    BasketCell(String product, int quantity) {
+    Product(String product, int quantity) {
         this.quantity = quantity;
-        this.product = product;
+        this.name = product;
     }
 
     int getQuantity() {
@@ -20,16 +20,16 @@ public class BasketCell {
         this.quantity = quantity;
     }
 
-    String getProduct() {
-        return product;
+    String getName() {
+        return name;
     }
 
     void setTitle(String product) {
-        this.product = product;
+        this.name = product;
     }
 
     @Override
     public String toString() {
-        return product + " - " + quantity + "шт.";
+        return name + " - " + quantity + "шт.";
     }
 }
