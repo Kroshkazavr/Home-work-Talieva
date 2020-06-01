@@ -47,7 +47,7 @@ public class EnCoder {
                     while ((s = br.readLine()) != null) {
                         //if (i > 1 || i < countFileLines(test01)) {
                         String s1 = s + " \n";
-                            os.write(s1.getBytes(charset2));
+                        os.write(s1.getBytes(charset2));
                         //i++;
                         // } else {
                         // os.write(s.getBytes(charset2));
@@ -120,7 +120,7 @@ public class EnCoder {
                 readChars = is.read(c);
             }
         } catch (IOException e) {
-            System.out.println("Ощибка при подсчете строк");
+            System.out.println("Ошибка при подсчете строк");
         }
         return counterN;
     }
