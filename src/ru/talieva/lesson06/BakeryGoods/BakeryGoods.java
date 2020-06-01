@@ -1,7 +1,9 @@
 package ru.talieva.lesson06.BakeryGoods;
 
-/** Родительский класс выпечка**/
-public class BakeryGoods {
+/**
+ * Родительский класс выпечка
+ **/
+public abstract class BakeryGoods {
     private int freshness; //свежесть выпечки в днях
     private int dueDay; //срок годности в днях
     private double weight; //вес в килограммах
@@ -13,11 +15,10 @@ public class BakeryGoods {
         this.weight = weight;
     }
 
-    public void getDryUp (int freshness, int dueDay) { //метод вычисляющий, не засохла ли выпечка
-        if (freshness >dueDay){
+    public void getDryUp(int freshness, int dueDay) { //метод вычисляющий, не засохла ли выпечка
+        if (freshness > dueDay) {
             System.out.println("Я засох.");
-        }
-        else System.out.println("Я свеж.");
+        } else System.out.println("Я свеж.");
     }
 
     public int getFreshness() {
